@@ -11,7 +11,7 @@ export default function CreateNew({ settodoArray, todoArray, listItem, setListIt
   };
 
   return (
-    <div>
+    <div className="createNew">
       <input
         className={darkMode ? "dark" : "light"}
         type="text"

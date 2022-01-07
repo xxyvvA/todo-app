@@ -38,8 +38,9 @@ export default function List({ todoArray, settodoArray, displayState, darkMode }
 
 const ListItem = ({ todoArray, settodoArray, darkMode, listItem, index }) => {
   return (
-    <li className={darkMode ? "dark" : "light"} key={index}>
+    <li className={`${darkMode ? "dark" : "light"} list`} key={index}>
       <input
+        className="checkbox"
         type="checkbox"
         onChange={() => {
           const newArr = [...todoArray];
@@ -50,7 +51,7 @@ const ListItem = ({ todoArray, settodoArray, darkMode, listItem, index }) => {
         id={index}
       />
 
-      <label className={darkMode ? "dark" : "light"} htmlFor={index}>
+      <label className={`${darkMode ? "dark" : "light"} checkLabel`} htmlFor={index}>
         {listItem[1] ? <strike>{listItem[0]}</strike> : listItem[0]}
       </label>
     </li>

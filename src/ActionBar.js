@@ -10,13 +10,13 @@ export default function ActionBar({
   darkMode,
 }) {
   return (
-    <div>
+    <div className="actionBar">
       <p className={darkMode ? "dark" : "light"}>{completed.length} items left</p>
 
       <Radio displayState={displayState} setDisplayState={setDisplayState} darkMode={darkMode} />
 
       <button
-        className={darkMode ? "dark" : "light"}
+        className={`${darkMode ? "dark" : "light"} clearComp`}
         onClick={() => {
           settodoArray(todoArray.filter((item) => !item[1]));
         }}
@@ -25,7 +25,7 @@ export default function ActionBar({
       </button>
 
       <button
-        className={darkMode ? "dark" : "light"}
+        className={`${darkMode ? "dark" : "light"} clearAll`}
         onClick={() => {
           settodoArray([]);
         }}
