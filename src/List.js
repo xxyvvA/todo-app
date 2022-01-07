@@ -1,36 +1,58 @@
 import React from "react";
 
-export default function List({ todoArray, completed, setcompleted, displayState, darkMode }) {
-  const displayedArray =
-    displayState === "all"
-      ? todoArray
-      : displayState === "completed"
-      ? completed.keys()
-      : todoArray.filter((item) => !completed.includes(item));
-
+export default function List({ todoArray, settodoArray, displayState, darkMode }) {
   return (
     <div>
       <ul>
-        {displayedArray.map((listItem, index) => (
-          <li className={darkMode ? "dark" : "light"} key={index}>
-            <input
-              type="checkbox"
-              onChange={() => {
-                if (completed.includes(itemIndex)) {
-                  setcompleted(completed.filter((item) => item !== itemIndex));
-                } else {
-                  setcompleted([...completed, itemIndex]);
-                }
-              }}
-              checked={completed.includes(itemIndex)}
-              id={index}
+        {todoArray.map((listItem, index) =>
+          displayState === "all" ? (
+            <ListItem
+              todoArray={todoArray}
+              settodoArray={settodoArray}
+              darkMode={darkMode}
+              listItem={listItem}
+              index={index}
             />
-            <label className={darkMode ? "dark" : "light"} htmlFor={index}>
-              {completed.includes(itemIndex) ? <strike>{listItem}</strike> : listItem}
-            </label>
-          </li>
-        ))}
+          ) : displayState === "active" && !listItem[1] ? (
+            <ListItem
+              todoArray={todoArray}
+              settodoArray={settodoArray}
+              darkMode={darkMode}
+              listItem={listItem}
+              index={index}
+            />
+          ) : displayState === "completed" && listItem[1] ? (
+            <ListItem
+              todoArray={todoArray}
+              settodoArray={settodoArray}
+              darkMode={darkMode}
+              listItem={listItem}
+              index={index}
+            />
+          ) : null
+        )}
       </ul>
     </div>
   );
 }
+
+const ListItem = ({ todoArray, settodoArray, darkMode, listItem, index }) => {
+  return (
+    <li className={darkMode ? "dark" : "light"} key={index}>
+      <input
+        type="checkbox"
+        onChange={() => {
+          const newArr = [...todoArray];
+          newArr[index][1] = !newArr[index][1];
+          settodoArray(newArr);
+        }}
+        checked={listItem[1]}
+        id={index}
+      />
+
+      <label className={darkMode ? "dark" : "light"} htmlFor={index}>
+        {listItem[1] ? <strike>{listItem[0]}</strike> : listItem[0]}
+      </label>
+    </li>
+  );
+};

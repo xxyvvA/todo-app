@@ -1,11 +1,12 @@
 import React from "react";
+import { mockComponent } from "react-dom/cjs/react-dom-test-utils.production.min";
 
 export default function CreateNew({ settodoArray, todoArray, listItem, setListItem, darkMode }) {
   const enterNew = (event) => {
     if (event.keyCode === 13 && listItem.length !== 0) {
       //&& !todoArray.includes(listItem)) {
       setListItem("");
-      settodoArray([...todoArray, listItem]);
+      settodoArray([...todoArray, [listItem, false]]);
     }
   };
 

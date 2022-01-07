@@ -5,7 +5,6 @@ import ActionBar from "./ActionBar";
 
 export default function Box({ darkMode }) {
   const [todoArray, settodoArray] = useState([]);
-  const [completed, setcompleted] = useState([]);
   const [listItem, setListItem] = useState("");
   const [displayState, setDisplayState] = useState("all");
 
@@ -21,8 +20,7 @@ export default function Box({ darkMode }) {
 
       <List
         todoArray={todoArray}
-        completed={completed}
-        setcompleted={setcompleted}
+        settodoArray={settodoArray}
         displayState={displayState}
         darkMode={darkMode}
       />
@@ -30,8 +28,7 @@ export default function Box({ darkMode }) {
       <ActionBar
         todoArray={todoArray}
         settodoArray={settodoArray}
-        completed={completed}
-        setcompleted={setcompleted}
+        completed={todoArray.filter((item) => !item[1])}
         displayState={displayState}
         setDisplayState={setDisplayState}
         darkMode={darkMode}

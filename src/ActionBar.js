@@ -5,24 +5,20 @@ export default function ActionBar({
   todoArray,
   completed,
   settodoArray,
-  setcompleted,
   displayState,
   setDisplayState,
   darkMode,
 }) {
   return (
     <div>
-      <p className={darkMode ? "dark" : "light"}>
-        {todoArray.length - completed.length} items left
-      </p>
+      <p className={darkMode ? "dark" : "light"}>{completed.length} items left</p>
 
       <Radio displayState={displayState} setDisplayState={setDisplayState} darkMode={darkMode} />
 
       <button
         className={darkMode ? "dark" : "light"}
         onClick={() => {
-          settodoArray(todoArray.filter((item) => !completed.includes(item)));
-          setcompleted([]);
+          settodoArray(todoArray.filter((item) => !item[1]));
         }}
       >
         Clear Completed
@@ -32,7 +28,6 @@ export default function ActionBar({
         className={darkMode ? "dark" : "light"}
         onClick={() => {
           settodoArray([]);
-          setcompleted([]);
         }}
       >
         Clear All
