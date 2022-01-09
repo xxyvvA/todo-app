@@ -1,5 +1,4 @@
 import React from "react";
-import { mockComponent } from "react-dom/cjs/react-dom-test-utils.production.min";
 
 export default function CreateNew({ settodoArray, todoArray, listItem, setListItem, darkMode }) {
   const enterNew = (event) => {
