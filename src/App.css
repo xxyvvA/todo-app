@@ -186,6 +186,7 @@ li .checkbox:not(:checked) + .spacer:hover {
 /* -------------------------------------------------------------------------- */
 .dark.root2 {
   background-image: url("images/bg-desktop-dark.jpg");
+  background-size: 100%;
   background-repeat: no-repeat;
   background-color: hsl(235, 21%, 11%);
 }
@@ -240,6 +241,7 @@ li .checkbox:not(:checked) + .spacer:hover {
 /* -------------------------------------------------------------------------- */
 .light.root2 {
   background-image: url("images/bg-desktop-light.jpg");
+  background-size: 100%;
   background-repeat: no-repeat;
   background-color: hsl(0, 0%, 98%);
 }
