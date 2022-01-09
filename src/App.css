@@ -1,0 +1,286 @@
+* {
+  font-family: Josefin Sans;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.root2 {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+.title {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 50px 0;
+}
+
+.title h1 {
+  margin: 0;
+
+  color: white;
+}
+
+.title button {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 0;
+}
+
+.newListItem {
+  width: 100%;
+}
+
+.createNew {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 0 15px 50px;
+  border: 0;
+  margin-bottom: 20px;
+  border-radius: 4px;
+}
+
+.createNew::placeholder {
+  opacity: 50%;
+}
+
+.list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.listItem {
+  list-style: none;
+  padding: 15px 0 15px 0;
+  display: flex;
+  align-items: center;
+}
+
+li .spacer {
+  width: 23px;
+  height: 23px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: 1px solid hsl(233, 14%, 35%);
+  margin: 0 12.5px 0 12.5px;
+  transition: border-color 0.3s;
+}
+
+li .checkbox:not(:checked) + .spacer:hover {
+  border: 1px solid hsl(192, 100%, 67%);
+}
+
+.checkmark img {
+  width: 16px;
+}
+
+.checkLabel {
+  opacity: 50%;
+}
+
+.actionBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.border {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.actionBar p {
+  opacity: 50%;
+}
+
+.radio {
+  display: flex;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.radio [type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radio label {
+  user-select: none;
+}
+
+.radio input[type="radio"]:hover + label {
+  cursor: pointer;
+}
+
+.radio input[type="radio"]:checked + label {
+  color: hsl(220, 98%, 61%, 100);
+}
+
+.actionBar .buttons button {
+  background-color: transparent;
+  border: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.actionBar .buttons button:hover {
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+
+.actionBar .buttons button:active {
+  color: hsl(220, 98%, 61%);
+}
+
+.transparent.spacer {
+  background-color: transparent;
+}
+
+.gradient.spacer {
+  background: linear-gradient(90deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  border: 2px transparent;
+  width: 25px;
+  height: 25px;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                  Dark Mode                                 */
+/* -------------------------------------------------------------------------- */
+.dark.root2 {
+  background-image: url("images/bg-desktop-dark.jpg");
+  background-repeat: no-repeat;
+  background-color: hsl(235, 21%, 11%);
+}
+.createNew.dark {
+  background-color: hsl(235, 24%, 19%);
+  color: white;
+}
+
+.dark.createnew::placeholder {
+  color: white;
+}
+
+.alert.dark {
+  color: rgb(199, 52, 52);
+}
+
+.dark.listItem {
+  background-color: hsl(235, 24%, 19%);
+  border-bottom: 1px solid hsl(233, 14%, 35%);
+}
+
+.dark.checkedlabel {
+  color: white;
+}
+
+.dark.actionBar {
+  background-color: hsl(235, 24%, 19%);
+}
+
+.actionBar p.dark {
+  color: white;
+}
+
+.dark.radio {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dark.radio input[type="radio"]:hover + label {
+  color: white;
+}
+
+.actionBar .buttons button.dark {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.actionBar .buttons button.dark:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Light Mode                                 */
+/* -------------------------------------------------------------------------- */
+.light.root2 {
+  background-image: url("images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.createNew.light {
+  background-color: white;
+}
+
+.light.createnew::placeholder {
+  color: black;
+}
+
+.alert.light {
+  color: rgb(138, 13, 13);
+}
+
+.light.listItem {
+  background-color: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.light.actionBar {
+  background-color: white;
+}
+
+.light.radio {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.light.radio input[type="radio"]:hover + label {
+  color: rgba(0, 0, 0, 1);
+}
+
+.actionBar .buttons button.light {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.actionBar .buttons button.light:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.checkLabel.light {
+  color: rgba(0, 0, 0, 0.9);
+}

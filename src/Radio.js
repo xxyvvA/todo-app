@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function Radio({ displayState, setDisplayState }) {
+export default function Radio({ displayState, setDisplayState, darkMode }) {
   return (
-    <div>
+    <div className={`${darkMode ? "dark" : "light"} radio`}>
       <input
+        className="radioInput"
         type="radio"
         checked={displayState === "all"}
         onChange={() => setDisplayState("all")}
@@ -14,6 +15,7 @@ export default function Radio({ displayState, setDisplayState }) {
       <label htmlFor="all">All</label>
 
       <input
+        className="radioInput"
         type="radio"
         checked={displayState === "active"}
         onChange={() => setDisplayState("active")}
@@ -24,6 +26,7 @@ export default function Radio({ displayState, setDisplayState }) {
       <label htmlFor="active">Active</label>
 
       <input
+        className="radioInput"
         type="radio"
         checked={displayState === "completed"}
         onChange={() => setDisplayState("completed")}
